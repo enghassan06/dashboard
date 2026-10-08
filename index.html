@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+      integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>smart home</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="home-title">
+        <div class="home-icon">
+          <i class="fa-solid fa-house"></i>
+        </div>
+        <div class="title">
+          <h1>smart home</h1>
+          <p>Control your home, easily</p>
+        </div>
+      </div>
+      <div class="date-time">
+        <div class="icon"><i class="fa-regular fa-clock"></i></div>
+        <div class="time">
+          <div id="currentTime" class="time">12:36 PM</div>
+          <div id="currentDate" class="date">Sat, 24 May</div>
+        </div>
+      </div>
+      <div class="user-icon"><i class="fa-solid fa-user"></i></div>
+    </header>
+    <section>
+      <div class="feature">
+        <div class="feature-wrapper">
+          <div class="icon light"><i class="fa-solid fa-lightbulb"></i></div>
+          <div class="feature-description">
+            <h2>lights</h2>
+            <p>living room</p>
+          </div>
+        </div>
+        <div class="toggle-wrapper">
+          <div class="toggle" id="lights">
+            <span></span>
+          </div>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-wrapper">
+          <div class="icon door"><i class="fa-solid fa-door-closed"></i></div>
+          <div class="feature-description">
+            <h2>Door</h2>
+            <p>living room</p>
+          </div>
+        </div>
+        <div class="toggle-wrapper">
+          <div class="toggle" id="door">
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
