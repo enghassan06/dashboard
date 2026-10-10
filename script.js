@@ -22,7 +22,7 @@ setInterval(updateDateTime, 1000);
 
 // حط السطر ده فوق الدالة مباشرة
 // ده الـ IP المبدئي.. وهنغيره بالرقم الحقيقي أول ما نشغل القطعة
-const ESP_IP = "http://192.168.1.100";
+const ESP_IP = "http://10.84.98.186";
 
 async function sendToArduino(command) {
   console.log(`جاري إرسال الحرف: ${command}`);
