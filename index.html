@@ -33,36 +33,75 @@
       </div>
       <div class="user-icon"><i class="fa-solid fa-user"></i></div>
     </header>
-    <section>
-      <div class="feature">
-        <div class="feature-wrapper">
-          <div class="icon light"><i class="fa-solid fa-lightbulb"></i></div>
-          <div class="feature-description">
-            <h2>lights</h2>
-            <p>living room</p>
+    <div class="rooms">
+      <button class="room-btn" data-room="main">main</button>
+      <button class="room-btn" data-room="living">living room</button>
+      <button class="room-btn" data-room="bedroom">bedroom</button>
+      <button class="room-btn" data-room="bathroom">bathroom</button>
+    </div>
+
+    <div class="rooms-container">
+      <div class="room-devices" id="main">
+        <div class="feature">
+          <div class="feature-wrapper">
+            <div class="icon gate"><i class="fa-solid fa-dungeon"></i></div>
+            <div class="feature-description">
+              <h2>entry gate</h2>
+              <p>main house</p>
+            </div>
+          </div>
+          <div class="toggle-wrapper">
+            <div class="toggle" id="gateMain">
+              <span></span>
+            </div>
           </div>
         </div>
-        <div class="toggle-wrapper">
-          <div class="toggle" id="lights">
-            <span></span>
+        <div class="feature">
+          <div class="feature-wrapper">
+            <div class="icon door"><i class="fa-solid fa-door-open"></i></div>
+            <div class="feature-description">
+              <h2>house door</h2>
+              <p>main house</p>
+            </div>
+          </div>
+          <div class="toggle-wrapper">
+            <div class="toggle" id="door">
+              <span></span>
+            </div>
+          </div>
+        </div>
+                <div class="feature">
+          <div class="feature-wrapper">
+            <div class="icon light"><i class="fa-solid fa-lightbulb"></i></div>
+            <div class="feature-description">
+              <h2>lights</h2>
+              <p>main house</p>
+            </div>
+          </div>
+          <div class="toggle-wrapper">
+            <div class="toggle" id="lightMain">
+              <span></span>
+            </div>
           </div>
         </div>
       </div>
-      <div class="feature">
-        <div class="feature-wrapper">
-          <div class="icon door"><i class="fa-solid fa-door-closed"></i></div>
-          <div class="feature-description">
-            <h2>Door</h2>
-            <p>living room</p>
+      <div class="room-devices" id="living">
+        <div class="feature">
+          <div class="feature-wrapper">
+            <div class="icon light"><i class="fa-solid fa-lightbulb"></i></div>
+            <div class="feature-description">
+              <h2>lights</h2>
+              <p>living room</p>
+            </div>
           </div>
-        </div>
-        <div class="toggle-wrapper">
-          <div class="toggle" id="door">
-            <span></span>
+          <div class="toggle-wrapper">
+            <div class="toggle" id="lights">
+              <span></span>
+            </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>

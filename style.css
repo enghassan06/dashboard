@@ -85,14 +85,53 @@ header .user-icon {
   font-size: 20px;
 }
 
-section {
-  margin: 25px 0;
+.rooms {
+  display: flex;
+  margin: 30px 0;
+  gap: 10px;
+}
+
+.rooms .room-btn {
+  flex: 1;
+  border: none;
+  background-color: white;
+  font-size: 12px;
+  border-radius: 20px;
+  padding: 13px 6px;
+  cursor: pointer;
+  transition: 0.3 ease;
+}
+
+.rooms .room-btn.active {
+  background-color: #1f9487;
+  color: white;
+}
+
+.room-devices.active {
   display: grid;
+  animation: EnterRoom 0.5s ease;
+}
+
+@keyframes EnterRoom {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.room-devices {
+  margin: 25px 0;
+  display: none;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
 }
 
-section .feature {
+.feature {
   background-color: white;
   padding: 10px 20px;
   border-radius: 17px;
@@ -102,12 +141,12 @@ section .feature {
   gap: 10px;
 }
 
-section .feature .feature-wrapper {
+.feature .feature-wrapper {
   display: flex;
   gap: 10px;
 }
 
-section .feature .icon {
+.feature .icon {
   width: 50px;
   height: 50px;
   background-color: #fef1d9;
@@ -119,35 +158,35 @@ section .feature .icon {
   color: #feb538;
 }
 
-section .feature .icon.door {
+.feature .icon.door {
   color: #1f9487;
   background-color: #d9f5ef;
 }
 
-section .feature .feature-description {
+.feature .feature-description {
   margin: 10px 0;
 }
 
-section .feature .feature-description h2 {
-  font-size: 19px;
+.feature .feature-description h2 {
+  font-size: 13px;
   font-weight: 800;
   margin-bottom: 7px;
 }
 
-section .feature .feature-description p {
+.feature .feature-description p {
   font-size: 11px;
   font-weight: 500;
   text-transform: capitalize;
 }
 
-section .feature .toggle-wrapper {
+.feature .toggle-wrapper {
   width: 100%;
   height: 30px;
   display: flex;
   justify-content: flex-end;
 }
 
-section .feature .toggle-wrapper .toggle {
+.feature .toggle-wrapper .toggle {
   width: 50px;
   height: 30px;
   background-color: #c8d1db;
@@ -159,7 +198,7 @@ section .feature .toggle-wrapper .toggle {
   align-items: center;
   justify-content: start;
 }
-section .feature .toggle-wrapper .toggle.active {
+.feature .toggle-wrapper .toggle.active {
   width: 50px;
   height: 30px;
   background-color: #2e9a92;
@@ -172,7 +211,7 @@ section .feature .toggle-wrapper .toggle.active {
   justify-content: flex-end;
 }
 
-section .feature .toggle-wrapper .toggle span {
+.feature .toggle-wrapper .toggle span {
   display: block;
   width: 25px;
   height: 25px;
