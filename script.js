@@ -29,8 +29,8 @@ async function sendToArduino(command) {
 
 const deviceMessage = {
   gateMain: {
-    on: "G",
-    off: "g",
+    on: "W",
+    off: "w", 
   },
   door: {
     on: "D",
