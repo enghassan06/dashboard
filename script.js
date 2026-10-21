@@ -14,7 +14,7 @@ updateDateTime();
 
 setInterval(updateDateTime, 1000);
 
-const ESP_IP = "http://10.192.108.186";
+const ESP_IP = "http://10.18.2247.186";
 
 async function sendToArduino(command) {
   try {
