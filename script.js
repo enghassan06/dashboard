@@ -14,23 +14,32 @@ updateDateTime();
 
 setInterval(updateDateTime, 1000);
 
+
 const ESP_IP = "http://10.18.247.186";
 
-async function sendToArduino(command) {
-  try {
-    await fetch(`${ESP_IP}/?cmd=${command}`, {
-      method: "GET",
-      mode: "no-cors",
-    });
-  } catch (error) {
-    console.log("القطعة مش متوصلة بالشبكة أو الـ IP غلط.");
-  }
+let requestQueue = Promise.resolve();
+
+function sendToArduino(command) {
+  requestQueue = requestQueue.then(async () => {
+    try {
+      await fetch(`${ESP_IP}/?cmd=${command}`, {
+        mode: "no-cors"
+      });
+
+      await new Promise(resolve => setTimeout(resolve, 100));
+    } catch (error) {
+      console.log(error);
+    }
+  });
+
+  return requestQueue;
 }
+
 
 const deviceMessage = {
   gateMain: {
     on: "W",
-    off: "w", 
+    off: "w",
   },
   door: {
     on: "D",
