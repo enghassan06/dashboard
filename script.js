@@ -20,9 +20,11 @@ const ESP_IP = "http://10.18.247.186";
 
 function sendToArduino(command) {
   fetch(`${ESP_IP}/?cmd=${command}`, {
-    mode: "no-cors"
-  }).catch(error => console.log(error));
+    mode: "no-cors",
+    cache: "no-store"
+  }).catch(console.error);
 }
+
 
 
 
