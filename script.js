@@ -15,25 +15,15 @@ updateDateTime();
 setInterval(updateDateTime, 1000);
 
 
+
 const ESP_IP = "http://10.18.247.186";
 
-let requestQueue = Promise.resolve();
-
 function sendToArduino(command) {
-  requestQueue = requestQueue.then(async () => {
-    try {
-      await fetch(`${ESP_IP}/?cmd=${command}`, {
-        mode: "no-cors"
-      });
-
-      await new Promise(resolve => setTimeout(resolve, 100));
-    } catch (error) {
-      console.log(error);
-    }
-  });
-
-  return requestQueue;
+  fetch(`${ESP_IP}/?cmd=${command}`, {
+    mode: "no-cors"
+  }).catch(error => console.log(error));
 }
+
 
 
 const deviceMessage = {
