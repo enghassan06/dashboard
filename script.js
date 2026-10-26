@@ -18,12 +18,60 @@ setInterval(updateDateTime, 1000);
 
 const ESP_IP = "http://10.18.247.186";
 
-function sendToArduino(command) {
-  fetch(`${ESP_IP}/?cmd=${command}`, {
-    mode: "no-cors",
+const alertBox = document.querySelector("#security-alert");
+const alertMessage = document.querySelector("#security-message");
+const okButton = document.querySelector("#security-ok");
+
+let acknowledgingAlarm = false;
+
+// Send commands to Arduino
+async function sendToArduino(command) {
+  const response = await fetch(`${ESP_IP}/?cmd=${command}`, {
+    mode: "cors",
     cache: "no-store"
-  }).catch(console.error);
+  });
+
+  return response.text();
 }
+
+// Check alarm status every 500ms
+async function checkAlarm() {
+  try {
+    const status = await sendToArduino("S");
+
+    if (status.trim() === "A") {
+      if (!acknowledgingAlarm) {
+        alertMessage.textContent =
+          "Warning! Window intrusion detected.";
+
+        alertBox.hidden = false;
+      }
+    } else if (status.trim() === "N") {
+      acknowledgingAlarm = false;
+      alertBox.hidden = true;
+    }
+  } catch (error) {
+    console.log("Could not connect to Arduino:", error);
+  }
+}
+
+// Clear the alarm when OK is clicked
+okButton.addEventListener("click", async () => {
+  acknowledgingAlarm = true;
+  alertBox.hidden = true;
+
+  try {
+    await sendToArduino("K");
+  } catch (error) {
+    acknowledgingAlarm = false;
+    console.log("Could not clear alarm:", error);
+  }
+});
+
+// Start checking
+checkAlarm();
+setInterval(checkAlarm, 500);
+
 
 
 
