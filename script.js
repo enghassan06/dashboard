@@ -70,7 +70,7 @@ okButton.addEventListener("click", async () => {
 
 // Start checking
 checkAlarm();
-setInterval(checkAlarm, 500);
+// setInterval(checkAlarm, 500);
 
 
 
